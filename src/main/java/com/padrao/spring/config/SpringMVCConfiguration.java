@@ -8,11 +8,11 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @Configuration
-@SuppressWarnings("deprecation")
 public class SpringMVCConfiguration extends WebMvcConfigurerAdapter {
 	
-	public void addResouceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/resouces/**").addResourceLocations("/resources/*");
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 	}
 	
 	@Bean

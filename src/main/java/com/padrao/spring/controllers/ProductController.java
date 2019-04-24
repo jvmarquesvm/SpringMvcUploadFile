@@ -23,11 +23,6 @@ import com.padrao.spring.entities.Product;
 public class ProductController implements ServletContextAware {
 	private ServletContext servletContext;
 	
-	@Override
-	public void setServletContext(ServletContext servletContext) {
-		this.servletContext = servletContext;
-	}
-	
 	@RequestMapping(method = RequestMethod.GET)
 	public String index(ModelMap modelMap) {
 		modelMap.put("product", new Product());
@@ -36,8 +31,8 @@ public class ProductController implements ServletContextAware {
 	
 	@RequestMapping(value = "save", method = RequestMethod.POST)
 	public String save(@ModelAttribute("product") Product product, 
-			           @RequestParam(value = "file") MultipartFile file,
-			           ModelMap modelMap) {
+			                @RequestParam(value = "file") MultipartFile file,
+			                      ModelMap modelMap) {
 		String fileName = saveImage(file);
 		product.setPhoto(fileName);
 		modelMap.put("product", product);
@@ -54,5 +49,9 @@ public class ProductController implements ServletContextAware {
 			return null;
 		}
 	}
-
+	
+	@Override
+	public void setServletContext(ServletContext servletContext) {
+		this.servletContext = servletContext;
+	}
 }

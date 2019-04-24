@@ -8,8 +8,9 @@
 	</head>
 	<body>
 	<h3>Adicionar Novo Produto</h3>
-	<s:form methotd="post" modelAttribute="product" enctype="multipart/form-data" action="product/save">
-		<table cellpadding="1" cellspacing="1" border="1">
+	<s:form methotd="post" modelAttribute="product" enctype="multipart/form-data" 
+	                                                              action="product/save">
+		<table>
 			<tr>
 				<td>Id</td>
 				<td><s:input path="id"/></td>
@@ -28,7 +29,7 @@
 			</tr>
 			<tr>
 				<td>&nbsp;</td>
-				<td><input type="submit" value="Save"/></td>
+				<td><input type="submit" value="Save"></td>
 			</tr>
 		</table>	
 	</s:form>
